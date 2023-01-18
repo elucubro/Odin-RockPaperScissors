@@ -10,28 +10,34 @@ function getComputerChoice() {
 // is playerchoice equal to computerchoice? | yes = tie | no = continue
 
 function singlernd(playerSelection) {
-    if (playerSelection.toLowerCase() == getComputerChoice()) {
+    let computerchoice = getComputerChoice()
+    if (playerSelection.toLowerCase() == computerchoice) {
         return 'tie!-00';
 // This is spaced strangely because when we split the string later to find out the win   
     } else if (playerSelection.toLowerCase() == 'rock') {
-        if (getComputerChoice() == 'paper') {
+        if (computerchoice == 'paper') {
             return 'loss-RP';
-        } else if (getComputerChoice() == 'scissors') {
+        } else if (computerchoice == 'scissors') {
             return 'win!-RS';
         }
-    } else if (playerSelection.toLowerCase() == 'paper') 
-        if (getComputerChoice() == 'scissors') {
+    } else if (playerSelection.toLowerCase() == 'paper') {
+        if (computerchoice == 'scissors') {
             return 'loss-PS';
-        } else if (getComputerChoice() == 'rock') {
+        } else if (computerchoice == 'rock') {
             return 'win!-PR';
-    } else if (playerSelection.toLowerCase() == 'scissors') 
-        if (getComputerChoice() == 'rock') {
+        }
+    } else if (playerSelection.toLowerCase() == 'scissors') {
+        if (computerchoice == 'rock') {
             return 'loss-SR';
-        } else if (getComputerChoice() == 'paper') {
+        } else if (computerchoice == 'paper') {
             return 'win!-SP';
+        }
     } else {
-        return 'ERROR';
-    }}
+        console.log(playerSelection);
+        console.log(computerchoice);
+    }
+    console.log(playerSelection)}
+
 
 // declaring container
 const buttonContainer = document.querySelector('.buttonContainer');
@@ -43,22 +49,29 @@ const paper = document.querySelector('#Paper')
 const scissors = document.querySelector('#Scissors')
 
 // Adding event listeners to buttons
-rock.addEventListener("click", function() {singlernd('Rock'); });
-paper.addEventListener("click", function() {singlernd('Paper'); });
-scissors.addEventListener("click", function() {singlernd('Scissors'); });
+let rockEvent = singlernd('Rock');
+let paperEvent = singlernd('Paper');
+let scissorsEvent = singlernd('Scissors');
+
+rock.addEventListener("click", function() {game(singlernd('Rock')); });
+paper.addEventListener("click", function() {game(singlernd('Paper')); });
+scissors.addEventListener("click", function() {game(singlernd('Scissors')); });
 
 //Use DOM method to create a DIV element and change based on winner
+const winDiv = document.createElement('div');
+const winHone = document.createElement('h3');
+
 function game(winDefinition) {
     // this seperates the first 3 letters of the string r.g "loss-SR" to "los"
     let victoryVar = winDefinition.substring(0,2);
-    const winDiv = document.createElement('div');
-    const winHone = document.createElement('h3');
     winHone.textContent = winDefinition
+    document.body.appendChild(winDiv);
     winDiv.appendChild(winHone);
     winHone.style.color = 'black';
+    
 };
 
-game('win');
+
 
 
 
