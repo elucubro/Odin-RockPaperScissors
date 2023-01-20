@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: hsl(70, 50%, 75%);
+}
+
+
+
+/*
+class style declarations
+*/
+.rockPaperContainer {
+    background-color: rgb(163, 159, 223);
+    height: 100%;
+}
+
+
