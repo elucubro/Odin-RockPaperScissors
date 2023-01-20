@@ -4,7 +4,9 @@ html, body {
     background-color: hsl(70, 50%, 75%);
 }
 
-
+button {
+    font-size: 2rem;
+}
 
 /*
 class style declarations
@@ -14,4 +16,20 @@ class style declarations
     height: 100%;
 }
 
+.leaderboardContainer {
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 400px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 20px;
+}
 
+.leaderboardOption {
+    color: black;
+    font-size: 2rem;
+    display: flex;
+    text-align: center;
+}
